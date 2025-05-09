@@ -7,3 +7,7 @@ jobs:
     steps: 
       - name: ls
         run: ls -al
+      - name: nginx
+        run: |
+          echo "Hola mundo" >> holat.txt
+          cat holat.txt
