@@ -5,9 +5,9 @@ jobs:
   test-build:
     runs-on: ubuntu-latest
     steps: 
+      - name: checkout
+        uses: actions/checkout@v2
       - name: ls
-        run: ls -al
-      - name: nginx
         run: |
-          echo "Hola mundo" >> holat.txt
-          cat holat.txt
+          chmod +x script.sh
+          ./script.sh
