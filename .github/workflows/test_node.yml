@@ -31,8 +31,7 @@ jobs: # Define los trabajos que se ejecutarán en el flujo de trabajo
       - name: node version # Nombre del paso para mostrar la versión de Node.js
         run: node -v # Comando para mostrar la versión de Node.js instalada
         
-      - name: install dependencies # Nombre del paso para instalar dependencias
-        run: npm install # Comando para instalar las dependencias del proyecto usando npm
+     
       - name: PHP INSTALL # Nombre del paso para instalar PHP
         uses: shivammathur/setup-php@v2 # Acción de GitHub para instalar PHP
         with: # Especifica los parámetros para la acción anterior
