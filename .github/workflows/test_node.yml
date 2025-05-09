@@ -34,7 +34,7 @@ jobs: # Define los trabajos que se ejecutarán en el flujo de trabajo
       - name: install dependencies # Nombre del paso para instalar dependencias
         run: npm install # Comando para instalar las dependencias del proyecto usando npm
       - name: PHP INSTALL # Nombre del paso para instalar PHP
-        run: shivammathur/setup-php@v2 # Acción de GitHub para instalar PHP
+        uses: shivammathur/setup-php@v2 # Acción de GitHub para instalar PHP
         with: # Especifica los parámetros para la acción anterior
           php-version: '8.4' # Versión de PHP a instalar
           extensions: mbstring, xml, curl # Extensiones de PHP a instalar
