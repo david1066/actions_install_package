@@ -1,0 +1,20 @@
+name: node
+on: [push, pull_request] # Define el evento que activa el flujo de trabajo, en este caso un push al repositorio
+jobs: # Define los trabajos que se ejecutarán en el flujo de trabajo
+  hola: # Nombre del primer trabajo
+    - name: Read file # Nombre del paso que lee un archivo
+      run: cat hola.txt # Comando para mostrar el contenido del archivo "hola.txt"
+
+  other: # Nombre del segundo trabajo
+    runs-on: ubuntu-latest # Especifica que este trabajo se ejecutará en un entorno Ubuntu
+    steps: # Define los pasos del trabajo
+      - name: Checkout # Nombre del paso para clonar el repositorio
+        uses: actions/checkout@v4.1.7 # Acción de GitHub para clonar el repositorio
+
+      - name: LS # Nombre del paso para listar archivos
+        run: ls -al # Comando para listar todos los archivos y directorios con detalles
+
+      - name: Setup Node.js environment # Nombre del paso para configurar el entorno de Node.js
+        uses: actions/setup-node@v4.0.3 # Acción de GitHub para configurar Node.js
+      - name: node version # Nombre del paso para mostrar la versión de Node.js
+        run: node -v # Comando para mostrar la versión de Node.js instalada 
