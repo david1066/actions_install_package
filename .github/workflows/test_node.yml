@@ -5,11 +5,18 @@ jobs: # Define los trabajos que se ejecutarán en el flujo de trabajo
   hola: # Nombre del primer trabajo
     runs-on: ubuntu-latest # Especifica que este trabajo se ejecutará en un entorno Ubuntu
     steps: # Define los pasos del trabajo
-      - name: Read file # Nombre del paso que lee un archivo
+      - name: touch file # Nombre del paso para crear un archivo vacío
+        run: touch hola.txt # Comando para crear un archivo llamado "hola.txt"
+
+      - name: Set text # Nombre del paso para escribir texto en el archivo
+        run: echo "Hola Mundo" >> hola.txt # Comando para agregar el texto "Hola Mundo" al archivo "hola.txt"
+
+      - name: Read file # Nombre del paso para leer el contenido del archivo
         run: cat hola.txt # Comando para mostrar el contenido del archivo "hola.txt"
 
   other: # Nombre del segundo trabajo
     runs-on: ubuntu-latest # Especifica que este trabajo se ejecutará en un entorno Ubuntu
+    needs: [hola] # Define que este trabajo depende del trabajo "hola" y no se ejecutará hasta que "hola" termine
     steps: # Define los pasos del trabajo
       - name: Checkout # Nombre del paso para clonar el repositorio
         uses: actions/checkout@v4.1.7 # Acción de GitHub para clonar el repositorio
